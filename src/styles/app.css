@@ -1,0 +1,469 @@
+:root {
+    --bg: #ffffff;
+    --bg-soft: #f5f5f7;
+    --bg-card: #ffffff;
+
+    --text: #1a1a1a;
+    --text-muted: #6e6e6e;
+
+    --primary: #4d6dff;
+    --primary-soft: #e2e7ff;
+
+    --radius: 14px;
+    --shadow: 0 4px 18px rgba(0, 0, 0, 0.08);
+}
+
+.dark {
+    --bg: #0b0d18;
+    --bg-soft: #151729;
+    --bg-card: #1a1c31;
+
+    --text: #f0f1ff;
+    --text-muted: #b7b8d9;
+
+    --primary: #8f7bff;
+    --primary-soft: #2c254d;
+
+    --shadow: 0 6px 20px rgba(29, 5, 45, 0.6);
+}
+
+.dark .input,
+.dark textarea,
+.dark select {
+    background: var(--bg-soft);
+    border-color: #2a2d4a;
+    color: var(--text);
+}
+
+.dark .input:focus,
+.dark textarea:focus,
+.dark select:focus {
+    border-color: var(--primary);
+    background: var(--bg-card);
+}
+
+.dark .card {
+    border-color: #2a2d4a;
+}
+
+:root {
+    --bg: #f5f6fa;
+    --bg-card: #ffffff;
+    --bg-soft: #eef0f5;
+
+    --text: #1e1f23;
+    --text-muted: #6d6f76;
+
+    --primary: #4975ff;
+    --primary-soft: #e5ecff;
+
+    --tag-green: #c7f7d4;
+    --tag-blue: #cfe4ff;
+    --tag-red: #ffd6d6;
+    --tag-yellow: #fff5c7;
+
+    --radius: 14px;
+    --shadow: 0 4px 18px rgba(0, 0, 0, 0.08);
+}
+
+body {
+    margin: 0;
+    background: var(--bg);
+    font-family: "Inter", sans-serif;
+    color: var(--text);
+}
+
+h2 {
+    font-size: 1.8rem;
+    margin-bottom: 16px;
+    font-weight: 700;
+}
+
+.container-main {
+    width: 93%;
+    max-width: 1300px;
+    margin: 30px auto;
+    padding: 0 10px;
+    box-sizing: border-box;
+}
+
+.app-header {
+    background: var(--bg-card);
+    padding: 18px 0;
+    box-shadow: var(--shadow);
+    border-bottom: 1px solid #e6e6e6;
+}
+
+.app-header .container {
+    width: 92%;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.app-header h1 {
+    font-size: 1.5rem;
+    margin: 0;
+    color: var(--primary);
+}
+
+.app-header nav a {
+    margin-left: 18px;
+    text-decoration: none;
+    color: var(--text-muted);
+    font-weight: 600;
+    transition: 0.2s;
+}
+
+.app-header nav a:hover {
+    color: var(--primary);
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 16px;
+    align-items: stretch;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.card {
+    background: var(--bg-card);
+    border-radius: var(--radius);
+    padding: 12px;
+    box-shadow: var(--shadow);
+    border: 1px solid #ececec;
+    transition: 0.2s ease;
+    height: 100%;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-sizing: border-box;
+    min-height: 280px;
+}
+
+.card-actions {
+    display: flex;
+    gap: 6px;
+    margin-top: 8px;
+    flex-wrap: wrap;
+}
+
+.card-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+
+.card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 6px 26px rgba(0, 0, 0, 0.1);
+}
+
+.cover-wrapper {
+    position: relative;
+    width: 100%;
+    padding-bottom: 56.25%;
+    overflow: hidden;
+    border-radius: calc(var(--radius) - 2px);
+    background: var(--bg-soft);
+}
+
+.game-cover {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: center;
+    background: var(--bg-soft);
+}
+
+.game-title {
+    margin-top: 8px;
+    font-weight: 700;
+    font-size: 1rem;
+}
+
+.tag {
+    display: inline-block;
+    padding: 5px 10px;
+    border-radius: 10px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    margin-right: 6px;
+    margin-top: 6px;
+}
+
+.tag-blue {
+    background: var(--tag-blue);
+}
+
+.tag-red {
+    background: var(--tag-red);
+}
+
+.tag-green {
+    background: var(--tag-green);
+}
+
+.tag-yellow {
+    background: var(--tag-yellow);
+}
+
+.btn {
+    background: var(--primary);
+    color: white;
+    border: none;
+    padding: 10px 14px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: 600;
+    text-decoration: none;
+    transition: 0.2s;
+}
+
+.btn:hover {
+    background: #3763f3;
+    transform: translateY(-1px);
+}
+
+.btn-secondary {
+    background: var(--primary-soft);
+    color: var(--primary);
+}
+
+.btn-completed {
+    background: #4CAF50;
+    color: white;
+}
+
+.btn-completed:hover {
+    background: #45a049;
+}
+
+
+.card.completed {
+    border-color: #4CAF50;
+}
+
+.input,
+textarea,
+select {
+    width: 100%;
+    padding: 8px 10px;
+    border-radius: var(--radius);
+    border: 1px solid #dcdcdc;
+    background: var(--bg-soft);
+    color: var(--text);
+    font-size: 0.95rem;
+    transition: 0.2s;
+    resize: vertical;
+    min-height: 38px;
+    box-sizing: border-box;
+}
+
+textarea {
+    min-height: 80px;
+    max-height: 200px;
+}
+
+.input:focus,
+textarea:focus,
+select:focus {
+    outline: none;
+    border-color: var(--primary);
+    background: #ffffff;
+}
+
+.form-row {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 8px;
+}
+
+.review-card {
+    background: var(--bg-card);
+    padding: 12px;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    border: 1px solid #e9e9e9;
+    margin-bottom: 8px;
+}
+
+.review-card p {
+    margin: 8px 0 0 0;
+    line-height: 1.4;
+}
+
+.reviews-container {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.dark {
+    background: radial-gradient(circle at 20% 20%, #2c2f56, #0b0d18 70%),
+        url("https://i.imgur.com/8KZtH4q.png");
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+.btn-toggle {
+    padding: 8px 14px;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    background: var(--primary);
+    color: white;
+    font-weight: 600;
+}
+
+.btn-toggle:hover {
+    background: var(--primary-soft);
+}
+
+.rating-container {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.rating-label {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+}
+
+.star-rating {
+    display: inline-flex;
+    gap: 2px;
+}
+
+.star-button {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    font-size: 24px;
+    color: #e4e5e9;
+    transition: transform 0.2s, color 0.2s;
+    line-height: 1;
+}
+
+.star-button.active,
+.star-button:hover {
+    color: #FFD700;
+    transform: scale(1.1);
+    text-shadow: 0 0 5px rgba(255, 215, 0, 0.5);
+}
+
+.review-stars {
+    color: #FFD700;
+    font-size: 1.1rem;
+}
+
+/* CONTENEDOR DE HORAS */
+.hours-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 12px;
+    padding: 8px 12px;
+    background: #f6f6f9;
+    border-radius: 10px;
+    border: 1px solid #e1e1e1;
+    gap: 14px;
+}
+
+/* TEXTO DE HORAS */
+.hours-text {
+    font-size: 15px;
+    color: #333;
+    font-weight: 600;
+    margin-right: 12px;
+}
+
+/* BOTÓN DE +1 HORA */
+.btn-hour {
+    background: #4169e1;
+    color: white;
+    font-size: 13px;
+    padding: 5px 10px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.btn-hour:hover {
+    background: #3254b6;
+    transform: scale(1.05);
+}
+
+.stat-card {
+    text-align: center;
+    padding: 20px;
+}
+
+.stat-number {
+    font-size: 32px;
+    font-weight: bold;
+    color: var(--fg-main);
+}
+
+.stat-game {
+    font-size: 20px;
+    font-weight: 600;
+}
+
+/* ⭐ Estrellas Interactivas */
+.stars-input {
+    display: flex;
+    gap: 6px;
+    margin: 10px 0 15px 0;
+    cursor: pointer;
+}
+
+.stars-input .star {
+    font-size: 28px;
+    color: #ccc;
+    transition: 0.2s ease;
+}
+
+.stars-input .star:hover {
+    color: #ffb400;
+    transform: scale(1.15);
+}
+
+.stars-input .star.selected {
+    color: #ffb400;
+}
+
+/* ⭐ Estrellas visibles en GameCard */
+.stars-display {
+    display: flex;
+    gap: 4px;
+    margin: 6px 0 10px 0;
+}
+
+.stars-display .star {
+    font-size: 20px;
+}
+
+.stars-display .filled {
+    color: #ffb400;
+    /* dorado */
+}
+
+.stars-display .empty {
+    color: #ccc;
+    /* gris */
+}
