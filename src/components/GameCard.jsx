@@ -17,7 +17,7 @@ export default function GameCard({ game, onDelete, onToggleCompleted, onAddHour 
                 </div>
                 <div className="game-title">{game.title}</div>
                 <div className="small">{game.platform}</div>
-
+                
                 {/* ⭐ Estrellas de rating */}
                 <div className="stars-display">
                     {[1, 2, 3, 4, 5].map((n) => (
@@ -49,7 +49,6 @@ export default function GameCard({ game, onDelete, onToggleCompleted, onAddHour 
                         +1 hora
                     </button>
                 </div>
-
             </div>
         </div>
     );

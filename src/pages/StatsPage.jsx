@@ -1,56 +1,60 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import API from "../api";
 
-export default function GameCard({ game, onDelete, onToggleCompleted, onAddHour }) {
+export default function StatsPage() {
+    const [games, setGames] = useState([]);
+
+    useEffect(() => {
+        const loadGames = async () => {
+            const res = await API.get("/games");
+            setGames(res.data);
+        };
+        loadGames();
+    }, []);
+
+    // ✅ Estadísticas calculadas
+    const totalHours = games.reduce((sum, g) => sum + (g.hoursPlayed || 0), 0);
+    const completedGames = games.filter(g => g.completed).length;
+    const averageRating = games.length
+        ? (games.reduce((sum, g) => sum + (g.rating || 0), 0) / games.length).toFixed(2)
+        : 0;
+
+    const mostPlayed = [...games].sort(
+        (a, b) => (b.hoursPlayed || 0) - (a.hoursPlayed || 0)
+    )[0];
+
     return (
-        <div className={`card ${game.completed ? 'completed' : ''}`}>
-            <div className="card-content">
-                <div className="cover-wrapper">
-                    <img
-                        className="game-cover"
-                        src={game.coverUrl || "https://via.placeholder.com/640x360?text=Sin+Imagen"}
-                        alt={game.title}
-                        onError={(e) => {
-                            e.target.src = "https://via.placeholder.com/640x360?text=Error+de+Imagen";
-                        }}
-                    />
-                </div>
-                <div className="game-title">{game.title}</div>
-                <div className="small">{game.platform}</div>
+        <main className="container-main">
+            <h2>Estadísticas personales</h2>
 
-                {/* ⭐ Estrellas de rating */}
-                <div className="stars-display">
-                    {[1, 2, 3, 4, 5].map((n) => (
-                        <span
-                            key={n}
-                            className={n <= game.rating ? "star filled" : "star empty"}
-                        >
-                            ★
-                        </span>
-                    ))}
-                </div>
-            </div>
-            <div className="card-actions">
-                <button
-                    className={`btn ${game.completed ? 'btn-completed' : 'btn-secondary'}`}
-                    onClick={() => onToggleCompleted(game)}
-                    title={game.completed ? "Marcar como no completado" : "Marcar como completado"}
-                >
-                    {game.completed ? '✓ Completado' : 'Marcar completado'}
-                </button>
-                <Link to={`/reviews/${game._id}`} className="btn">Reseñas</Link>
-                <button className="btn" onClick={() => onDelete(game._id)}>Eliminar</button>
-                <div className="hours-row">
-                    <span className="hours-text">⏱ {game.hoursPlayed || 0} horas</span>
-                    <button
-                        className="btn-hour"
-                        onClick={() => onAddHour(game)}
-                    >
-                        +1 hora
-                    </button>
+            <div className="grid">
+                <div className="card stat-card">
+                    <h3>Horas totales jugadas</h3>
+                    <p className="stat-number">{totalHours} h</p>
                 </div>
 
+                <div className="card stat-card">
+                    <h3>Juegos completados</h3>
+                    <p className="stat-number">{completedGames}</p>
+                </div>
+
+                <div className="card stat-card">
+                    <h3>Promedio de calificación</h3>
+                    <p className="stat-number">{averageRating} ★</p>
+                </div>
+
+                <div className="card stat-card">
+                    <h3>Juego más jugado</h3>
+                    {mostPlayed ? (
+                        <>
+                            <p className="stat-game">{mostPlayed.title}</p>
+                            <p className="small">{mostPlayed.hoursPlayed} h</p>
+                        </>
+                    ) : (
+                        <p className="small">No hay juegos registrados</p>
+                    )}
+                </div>
             </div>
-        </div>
+        </main>
     );
 }
