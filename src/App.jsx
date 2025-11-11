@@ -19,7 +19,7 @@ export default function App() {
             <div className="container">
                 <div className="logo-box">
             <img src={logo} alt="Logo" className="rlz-logo" />
-            <h1 className="rlz-title">GameTracker</h1>
+            <h1 className="rlz-title">RLZ-TRACKER</h1>
         </div>
                 <nav>
                     <Link to="/">Biblioteca</Link>
