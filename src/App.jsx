@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import React from "react";
+import logo from "./assets/logo.jpg";
 
 export default function App() {
     const [dark, setDark] = useState(false);
@@ -16,7 +17,10 @@ export default function App() {
     return (
         <header className="app-header">
             <div className="container">
-                <h1>GameTracker</h1>
+                <div className="logo-box">
+            <img src={logo} alt="Logo" className="rlz-logo" />
+            <h1 className="rlz-title">GameTracker</h1>
+        </div>
                 <nav>
                     <Link to="/">Biblioteca</Link>
                     <Link to="/add">Agregar</Link>

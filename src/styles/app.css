@@ -467,3 +467,41 @@ select:focus {
     color: #ccc;
     /* gris */
 }
+
+/* -------------------------------
+   LOGO + TITULO
+--------------------------------*/
+.logo-box {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.rlz-logo {
+    width: 48px;
+    height: 48px;
+    border-radius: 10px;
+    object-fit: cover;
+    box-shadow: 0 0 10px rgba(130, 74, 255, 0.5);
+    filter: brightness(2.0);
+}
+
+.rlz-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    background: linear-gradient(90deg, #ff4d6d, #7a5bff);
+    background-clip: text;
+    color: transparent;
+}
+
+/* ⭐ Modo galaxia */
+.dark .rlz-logo {
+    box-shadow: 0 0 14px rgba(190, 130, 255, 0.9);
+    filter : brightness(1.80);
+}
+
+.dark .rlz-title {
+    background: linear-gradient(90deg, #e682ff, #a17bff);
+    background-clip: text;
+    color: transparent;
+}
