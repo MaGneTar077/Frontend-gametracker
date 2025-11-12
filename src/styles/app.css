@@ -13,38 +13,7 @@
     --shadow: 0 4px 18px rgba(0, 0, 0, 0.08);
 }
 
-.dark {
-    --bg: #0b0d18;
-    --bg-soft: #151729;
-    --bg-card: #1a1c31;
 
-    --text: #f0f1ff;
-    --text-muted: #b7b8d9;
-
-    --primary: #8f7bff;
-    --primary-soft: #2c254d;
-
-    --shadow: 0 6px 20px rgba(29, 5, 45, 0.6);
-}
-
-.dark .input,
-.dark textarea,
-.dark select {
-    background: var(--bg-soft);
-    border-color: #2a2d4a;
-    color: var(--text);
-}
-
-.dark .input:focus,
-.dark textarea:focus,
-.dark select:focus {
-    border-color: var(--primary);
-    background: var(--bg-card);
-}
-
-.dark .card {
-    border-color: #2a2d4a;
-}
 
 :root {
     --bg: #f5f6fa;
@@ -252,6 +221,11 @@ h2 {
 .card.completed {
     border-color: #4CAF50;
 }
+
+.card.completed .btn-completed {
+    background: #45a049;
+}
+
 
 .input,
 textarea,
@@ -515,7 +489,7 @@ body.dark {
     background-attachment: fixed;
     background-repeat: no-repeat;
     color: var(--text);
-    transition: background 0.5s ease, color 0.3s ease;
+    transition: backgroun 0.5s ease, color 0.3s ease;
 }
 
 /* Ajustes visuales en modo galaxia */
@@ -580,3 +554,5 @@ body.dark .card:hover {
     transform: translateY(-4px);
     box-shadow: 0 0 20px rgba(161, 123, 255, 0.3);
 }
+
+

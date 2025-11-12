@@ -16,8 +16,12 @@ export default function App() {
     };
 
     useEffect(() => {
-        document.body.classList.toggle("modo-galaxia", dark);
-    }, [dark]);
+    if (dark) {
+    document.body.classList.add("dark");
+    } else {
+    document.body.classList.remove("dark");
+    }
+}, [dark]);
 
     return (
         <header className="app-header">
