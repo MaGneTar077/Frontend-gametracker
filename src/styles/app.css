@@ -505,3 +505,78 @@ LOGO + TITULO
     background-clip: text;
     color: transparent;
 }
+
+/* 🌌✨ MODO GALAXIA ULTRAFINAL ✨🌌 */
+body.dark {
+    /* Fondo espacial dinámico */
+    background: radial-gradient(circle at 20% 20%, #2c2f56, #0b0d18 70%),
+        url("https://i.imgur.com/8KZtH4q.png");
+    background-size: cover;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    color: var(--text);
+    transition: background 0.5s ease, color 0.3s ease;
+}
+
+/* Ajustes visuales en modo galaxia */
+body.dark {
+    --bg: #0b0d18;
+    --bg-soft: #151729;
+    --bg-card: #1a1c31;
+    --text: #f0f1ff;
+    --text-muted: #b7b8d9;
+    --primary: #a17bff;
+    --primary-soft: #2c254d;
+    --shadow: 0 6px 20px rgba(130, 74, 255, 0.6);
+}
+
+/* Inputs y tarjetas en modo galaxia */
+body.dark .input,
+body.dark textarea,
+body.dark select {
+    background: var(--bg-soft);
+    border-color: #2a2d4a;
+    color: var(--text);
+}
+
+body.dark .input:focus,
+body.dark textarea:focus,
+body.dark select:focus {
+    border-color: var(--primary);
+    background: var(--bg-card);
+}
+
+body.dark .card {
+    border-color: #2a2d4a;
+    box-shadow: var(--shadow);
+}
+
+/* Logo y título modo galaxia */
+body.dark .rlz-logo {
+    box-shadow: 0 0 14px rgba(190, 130, 255, 0.9);
+    filter: brightness(1.8);
+}
+
+body.dark .rlz-title {
+    background: linear-gradient(90deg, #e682ff, #a17bff);
+    background-clip: text;
+    color: transparent;
+}
+
+/* Botones modo galaxia */
+body.dark .btn {
+    background: var(--primary);
+    color: #fff;
+    box-shadow: 0 0 10px rgba(161, 123, 255, 0.5);
+}
+
+body.dark .btn:hover {
+    background: #9b6dff;
+    transform: translateY(-1px) scale(1.03);
+}
+
+/* Tarjetas interactivas en modo galaxia */
+body.dark .card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 0 20px rgba(161, 123, 255, 0.3);
+}
