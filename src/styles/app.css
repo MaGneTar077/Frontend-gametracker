@@ -89,6 +89,21 @@ h2 {
     color: var(--primary);
 }
 
+.app-header nav {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    /* Espacio entre los enlaces del menú */
+}
+
+body.dark .app-header {
+    border-bottom: 2px solid transparent;
+    background: linear-gradient(to bottom, rgba(26, 28, 49, 0.95), rgba(15, 15, 30, 0.95));
+    box-shadow: 0 0 18px rgba(161, 123, 255, 0.4);
+    backdrop-filter: blur(6px);
+    border-image: linear-gradient(90deg, #a17bff, #cfa9ff, #a17bff) 1;
+}
+
 .grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
@@ -383,18 +398,30 @@ select:focus {
 }
 
 .stat-card {
+    background: var(--bg-card);
+    border-radius: 15px;
+    box-shadow: 0 0 12px rgba(180, 120, 255, 0.2);
+    padding: 25px 40px;
     text-align: center;
-    padding: 20px;
+    flex: 1 1 220px;
+    /* tamaño adaptable */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.stat-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 0 20px rgba(180, 120, 255, 0.4);
 }
 
 .stat-number {
-    font-size: 32px;
+    font-size: 2.3rem;
     font-weight: bold;
-    color: var(--fg-main);
+    color: var(--primary);
 }
 
 .stat-game {
-    font-size: 20px;
+    font-size: 1.2rem;
+    color: var(--text-muted);
     font-weight: 600;
 }
 
@@ -471,7 +498,7 @@ LOGO + TITULO
 /* ⭐ Modo galaxia */
 .dark .rlz-logo {
     box-shadow: 0 0 14px rgba(190, 130, 255, 0.9);
-    filter : brightness(1.80);
+    filter: brightness(1.80);
 }
 
 .dark .rlz-title {
@@ -556,3 +583,179 @@ body.dark .card:hover {
 }
 
 
+/* 🌌🎮 Estilo para juegos completados en modo galaxia */
+body.dark .card.completed {
+    border-color: #00ff9d;
+    /* Verde neón más visible en modo oscuro */
+    box-shadow: 0 0 12px rgba(0, 255, 157, 0.6);
+    /* Brillo suave */
+    background: linear-gradient(145deg, #1a1c31, #121327);
+    transition: 0.3s ease;
+}
+
+/* Botón completado en modo galaxia */
+body.dark .card.completed .btn-completed {
+    background: #00ff9d;
+    color: #0b0d18;
+    box-shadow: 0 0 8px rgba(0, 255, 157, 0.6);
+}
+
+body.dark .card.completed .btn-completed:hover {
+    background: #00d88b;
+    box-shadow: 0 0 12px rgba(0, 255, 157, 0.8);
+    transform: translateY(-2px);
+}
+
+/* 📱📲💻 RESPONSIVE DESIGN */
+
+/* 🔹 Celulares pequeños (hasta 600px) */
+@media (max-width: 600px) {
+    .app-header .container {
+        flex-direction: column;
+        text-align: center;
+        gap: 12px;
+    }
+
+    .app-header nav {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 12px;
+    }
+
+    .rlz-logo {
+        width: 40px;
+        height: 40px;
+    }
+
+    .rlz-title {
+        font-size: 1.2rem;
+    }
+
+    h2 {
+        font-size: 1.4rem;
+    }
+
+    .container-main {
+        width: 95%;
+        margin: 20px auto;
+        padding: 0 8px;
+    }
+
+    .grid {
+        grid-template-columns: 1fr;
+    }
+
+    .card {
+        padding: 14px;
+        min-height: auto;
+    }
+
+    .input,
+    textarea,
+    select {
+        font-size: 0.9rem;
+        padding: 8px;
+    }
+
+    .btn {
+        width: 100%;
+        padding: 10px;
+    }
+
+    .stat-card {
+        padding: 20px;
+        font-size: 0.9rem;
+    }
+
+    .stat-number {
+        font-size: 1.8rem;
+    }
+
+    .stat-game {
+        font-size: 1rem;
+    }
+
+    .hours-row {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .hours-text {
+        font-size: 14px;
+    }
+}
+
+/* 🔹 Tablets (entre 601px y 992px) */
+@media (min-width: 601px) and (max-width: 992px) {
+    .app-header .container {
+        width: 95%;
+    }
+
+    .rlz-logo {
+        width: 44px;
+        height: 44px;
+    }
+
+    .rlz-title {
+        font-size: 1.4rem;
+    }
+
+    .grid {
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        gap: 18px;
+    }
+
+    .card {
+        padding: 16px;
+        min-height: 260px;
+    }
+
+    .container-main {
+        width: 94%;
+    }
+
+    .stat-card {
+        padding: 25px;
+    }
+
+    .stat-number {
+        font-size: 2rem;
+    }
+
+    .stat-game {
+        font-size: 1.1rem;
+    }
+}
+
+/* 💻 Computadores grandes (desde 993px en adelante) */
+@media (min-width: 993px) {
+    .container-main {
+        max-width: 1300px;
+        margin: 40px auto;
+    }
+
+    .grid {
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        gap: 20px;
+    }
+
+    .card {
+        padding: 18px;
+    }
+
+    .stat-card {
+        padding: 30px;
+    }
+
+    .stat-number {
+        font-size: 2.5rem;
+    }
+
+    .stat-game {
+        font-size: 1.2rem;
+    }
+
+    .app-header h1 {
+        font-size: 1.6rem;
+    }
+}
